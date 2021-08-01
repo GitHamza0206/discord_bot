@@ -40,6 +40,7 @@ def authorize():
     token = oauth.lichess.authorize_access_token()
     bearer = token['access_token']
     headers = {'Authorization': f'Bearer {bearer}'}
+    print(bearer)
     response = requests.get(f"{LICHESS_HOST}/api/account", headers=headers)
     return jsonify(**response.json())
 
